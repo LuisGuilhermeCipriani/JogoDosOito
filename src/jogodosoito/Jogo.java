@@ -10,5 +10,9 @@ package jogodosoito;
  * @author cipri
  */
 public class Jogo {
+
+    int[] linha = {1, 0, -1, 0};
+    int[] coluna = {0, -1, 0, 1};
     
+    public int tamanho = 3;
 }
