@@ -33,4 +33,17 @@ public class Jogo {
 		imprimeMatriz(raiz.matriz);
 		System.out.println();
 	}
+    
+    public int calculaCusto(int[][] configuracaoInicial, int[][] configuracaoFinal) {
+		int contador = 0;
+		int tam = configuracaoInicial.length;
+		for (int i = 0; i < tam; i++) {
+			for (int j = 0; j < tam; j++) {
+				if (configuracaoInicial[i][j] != 0 && configuracaoInicial[i][j] != configuracaoFinal[i][j]) {
+					contador++;
+				}
+			}
+		}
+		return contador;
+	}
 }
