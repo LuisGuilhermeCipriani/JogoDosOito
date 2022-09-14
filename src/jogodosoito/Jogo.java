@@ -13,6 +13,15 @@ public class Jogo {
 
     int[] linha = {1, 0, -1, 0};
     int[] coluna = {0, -1, 0, 1};
-    
+
     public int tamanho = 3;
+
+    public void imprimeMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz.length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
