@@ -24,4 +24,13 @@ public class Jogo {
             System.out.println();
         }
     }
+    
+    public void imprimeCaminho(No raiz) {
+		if (raiz == null) {
+			return;
+		}
+		imprimeCaminho(raiz.vizinho);
+		imprimeMatriz(raiz.matriz);
+		System.out.println();
+	}
 }
