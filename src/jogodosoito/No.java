@@ -6,16 +6,22 @@ package jogodosoito;
  */
 public class No {
 
+    //Peça alocada no espaço vizinho
     public No vizinho;
 
+    //Matriz 3x3 representando os nove espaços do tabuleiro
     int matriz[][] = new int[3][3];
 
+    //Coordenadas para o espaço em branco
     public int coordX, coordY;
 
+    //Quantidade de peças colocadas em posições erradas
     public int custo;
 
+    //Número de movimentos realizados
     public int nivel;
 
+    //Método construtor da classe No, com inicialização dos atributos.
     public No(int matriz[][], int coordX, int coordY, int novaCoordX, int novaCoordY, No vizinho, int nivel) {
 
         this.custo = Integer.MAX_VALUE;
