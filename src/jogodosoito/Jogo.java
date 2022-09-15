@@ -1,18 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package jogodosoito;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
-import javafx.scene.Node;
 
 /**
  *
- * @author cipri
+ * @author Luis Guilherme Cipriani
  */
 public class Jogo {
 
@@ -20,11 +15,12 @@ public class Jogo {
     int[] coluna = {0, -1, 0, 1};
 
     public int tamanho = 3;
+    static int configuracoes = 0;
 
     public void imprimeMatriz(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
+        for (int[] matriz1 : matriz) {
             for (int j = 0; j < matriz.length; j++) {
-                System.out.print(matriz[i][j] + " ");
+                System.out.print(" | " + matriz1[j] + " | ");
             }
             System.out.println();
         }
@@ -35,8 +31,9 @@ public class Jogo {
             return;
         }
         imprimeCaminho(raiz.vizinho);
+        System.out.println("\n Configuração " + configuracoes + ":");
         imprimeMatriz(raiz.matriz);
-        System.out.println();
+        configuracoes++;
     }
 
     public int calculaCusto(int[][] configuracaoInicial, int[][] configuracaoFinal) {
@@ -59,7 +56,7 @@ public class Jogo {
 
     public void solucionaJogo(int[][] configuracaoInicial, int[][] configuracaoFinal, 
             int x, int y) {
-        PriorityQueue<No> fila = new PriorityQueue<No>(1000, (a, b) -> 
+        PriorityQueue<No> fila = new PriorityQueue<>(1000, (a, b) -> 
                 (a.custo + a.nivel) - (b.custo + b.nivel));
         No raiz = new No(configuracaoInicial, x, y, x, y, null, 0);
         raiz.custo = calculaCusto(configuracaoInicial, configuracaoFinal);
@@ -86,13 +83,13 @@ public class Jogo {
     
     public boolean ehSolucionavel(int[][] matriz) {
 		int contador = 0;
-		List<Integer> lista = new ArrayList<Integer>();
+		List<Integer> lista = new ArrayList<>();
 		
-		for (int i = 0; i < matriz.length; i++) {
-			for (int j = 0; j < matriz.length; j++) {
-				lista.add(matriz[i][j]);
-			}
-		}
+        for (int[] matriz1 : matriz) {
+            for (int j = 0; j < matriz.length; j++) {
+                lista.add(matriz1[j]);
+            }
+        }
 		
 		Integer[] lista2 = new Integer[lista.size()];
 		lista.toArray(lista2);
