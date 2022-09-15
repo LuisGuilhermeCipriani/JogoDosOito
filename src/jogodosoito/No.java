@@ -35,6 +35,7 @@ public class No {
             this.matriz[i] = matriz[i].clone();
         }
 
+        //Troca os valores da matriz
         this.matriz[coordX][coordY] = this.matriz[coordX][coordY] + this.matriz[novaCoordX][novaCoordY];
         this.matriz[novaCoordX][novaCoordY] = this.matriz[coordX][coordY] - this.matriz[novaCoordX][novaCoordY];
         this.matriz[coordX][coordY] = this.matriz[coordX][coordY] - this.matriz[novaCoordX][novaCoordY];
